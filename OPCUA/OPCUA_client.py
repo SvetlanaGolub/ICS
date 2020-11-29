@@ -4,24 +4,8 @@ import opcua
 
 url = "opc.tcp://192.168.56.1:4840"
 client = Client(url)
-try:
-    while True:
-        encrypt = input("Use encryption and signature? y/n  ")
-        if encrypt == 'y':
-            client.set_security_string("Basic256Sha256,SignAndEncrypt,certificate.der,private-key.pem")
-            client.secure_channel_timeout = 10000
-            client.session_timeout = 10000
-            break
-        elif encrypt == 'n':
-            break
-        else:
-            print("Wrong answer. Try again")
-
-    client.connect()
-    print("Client connected")
-except opcua.ua.uaerrors._base.UaError:
-    print("Wrong security mode. Try again")
-    exit()
+client.connect()
+print("Client connected")
 
 client.load_type_definitions()
 
