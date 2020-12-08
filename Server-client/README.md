@@ -13,21 +13,15 @@
 ```
 python3 OPCUA_server.py
 ```
-Выбор режима соединения:
-```
-Use encryption and signature? y/n 
-```
+
 2. **Запуск клиента**
 ```
 python3 OPCUA_client.py
-```
-Выбор режима соединения (должен соответствовать режиму, выбранному на стороне сервера):
-```
-Use encryption and signature? y/n 
 ```
 
 # Трафик
 
 С помощью ПО Wireshark были сделаны дампы трафика между клиентом и сервером.
-1. Без шифрования - `opcua.pcapng`
-2. С шифрованием и подписью - `opcua_with_enc.pcapng`
+```
+opcua.pcapng
+```
