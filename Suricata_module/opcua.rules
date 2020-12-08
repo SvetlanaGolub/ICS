@@ -15,6 +15,6 @@ drop tcp any any -> any any (msg: "Token has been changed"; opcua: token; sid:7;
 #Detect request number 29
 alert tcp any any -> any any (msg: "Request id equal to 29"; opcua: request 29; sid:8;)
 #Detect read request with size greater then 100. Because of classtype successful-recon-largescale its priority = 2
-alert tcp any any -> any any (msg: "Read req size gt 100"; opcua: function readReq; opcua: size gt 100; classtype: successful-recon-largescale; sid:9;)
+alert tcp any any -> any any (msg: "Read req"; opcua: function readReq; classtype: successful-recon-largescale; sid:9;)
 #Detect MSG message type with size greater then 200. Because of classtype not-suspicious its priority = 3
-drop tcp any any -> any any (msg: "MSG message gt 200"; opcua: type MSG; opcua: size gt 200; classtype: not-suspicious; sid:10;)
+drop tcp any any -> any any (msg: "MSG message"; opcua: type MSG; classtype: not-suspicious; sid:10;)
